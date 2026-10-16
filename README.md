@@ -1,4 +1,4 @@
-This project contains code and steps to initialize a custom kernel module for linux to monitor network throughput.
+This project contains code and steps to initialize a custom kernel module for linux to monitor network throughput and check the processes and use MLFQ Scheduling .
 
 You can you linux like ubuntu or arch and you can also use AWS Linux for this just make sure you store all the files in same dir, I have stored in
  user/develop/kernel/netspeed and stored these files using nano 
@@ -18,3 +18,13 @@ sudo python3 netspeed_top.py
  curl "https://speed.edgecompute.app/down?bytes=1000000000000000000" > /dev/null
 
 To unload the module after you are done sudo rmmod netspeed
+
+Turn MLFQ ON:
+
+Bash
+echo "mode mlfq" | sudo tee /proc/netspeed_ctl
+
+Turn MLFQ OFF:
+
+Bash
+echo "mode off" | sudo tee /proc/netspeed_ctl
