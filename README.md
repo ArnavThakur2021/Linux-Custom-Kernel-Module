@@ -15,9 +15,14 @@ watch -n1 cat /proc/netspeed
 sudo python3 netspeed_top.py
 
 #You can open other terminal using tmux (then ctrl+b and %) .To check the network monitor simultaneously you can run the below curl in other tab (ctrl+b and <- or ->).
+
  curl "https://speed.edgecompute.app/down?bytes=1000000000000000000" > /dev/null
 
-To unload the module after you are done sudo rmmod netspeed
+To unload the module after you are done do: 
+
+ make clean
+
+ sudo rmmod netspeed
 
 Turn MLFQ ON:
 
@@ -28,3 +33,7 @@ Turn MLFQ OFF:
 
 Bash
 echo "mode off" | sudo tee /proc/netspeed_ctl
+
+To run the benchmark.py script do
+
+sudo python3 benchmark.py
